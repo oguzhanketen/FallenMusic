@@ -43,32 +43,32 @@ async def fallen_st(_, message: Message):
                 query = f"https://www.youtube.com/watch?v={query}"
                 results = VideosSearch(query, limit=1)
                 for result in (await results.next())["result"]:
-                    title = result["title"]
-                    duration = result["duration"]
+                    title = result["başlık"]
+                    duration = result["süre"]
                     views = result["viewCount"]["short"]
                     thumbnail = result["thumbnails"][0]["url"].split("?")[0]
-                    channellink = result["channel"]["link"]
-                    channel = result["channel"]["name"]
+                    channellink = result["kanal"]["link"]
+                    channel = result["kanal adı"]["name"]
                     link = result["link"]
-                    published = result["publishedTime"]
+                    published = result["tamamlanma süresi"]
                 searched_text = f"""
 ➻ **ᴛʀᴀᴄᴋ ɪɴғᴏʀɴᴀᴛɪᴏɴ** 
 
-📌 **ᴛɪᴛʟᴇ :** {title}
+📌 **ʙᴀşʟıᴋ :** {title}
 
-⏳ **ᴅᴜʀᴀᴛɪᴏɴ :** {duration} ᴍɪɴᴜᴛᴇs
+⏳ **sᴜ̈ʀᴇ :** {duration} ᴅᴀᴋɪᴋᴀ
 👀 **ᴠɪᴇᴡs :** `{views}`
-⏰ **ᴩᴜʙʟɪsʜᴇᴅ ᴏɴ :** {published}
+⏰ **ʏᴀʏıɴʟᴀʏᴀɴ :** {published}
 🔗 **ʟɪɴᴋ :** [ᴡᴀᴛᴄʜ ᴏɴ ʏᴏᴜᴛᴜʙᴇ]({link})
-🎥 **ᴄʜᴀɴɴᴇʟ :** [{channel}]({channellink})
+🎥 **ᴋᴀɴᴀʟ :** [{channel}]({channellink})
 
-💖 sᴇᴀʀᴄʜ ᴩᴏᴡᴇʀᴇᴅ ʙʏ {BOT_NAME}"""
+💖 ᴀʀᴀᴍᴀʏᴀ ɢᴜ̈ᴄ̧ ᴋᴀᴛᴀɴ {BOT_NAME}"""
                 key = InlineKeyboardMarkup(
                     [
                         [
                             InlineKeyboardButton(text="ʏᴏᴜᴛᴜʙᴇ", url=link),
                             InlineKeyboardButton(
-                                text="sᴜᴩᴩᴏʀᴛ", url=config.SUPPORT_CHAT
+                                text="ᴅᴇsᴛᴇᴋ", url=config.SUPPORT_CHAT
                             ),
                         ],
                     ]
