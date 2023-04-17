@@ -41,6 +41,6 @@ async def stop_str(_, message: Message):
         pass
 
     return await message.reply_text(
-        text=f"➻ **sᴛʀᴇᴀᴍ ᴇɴᴅᴇᴅ/sᴛᴏᴩᴩᴇᴅ** ❄\n│ \n└ʙʏ : {message.from_user.mention} 🥀",
+        text=f"➻ **ᴀᴋış sᴏɴʟᴀɴᴅı/ᴅᴜʀᴅᴜʀᴜʟᴅᴜ** ❄\n│ \n👉 : {message.from_user.mention} 🥀",
         reply_markup=close_key,
     )
