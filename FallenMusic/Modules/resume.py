@@ -27,7 +27,7 @@ from FallenMusic import app, pytgcalls
 from FallenMusic.Helpers import admin_check, close_key, is_streaming, stream_on
 
 
-@app.on_message(filters.command(["resume"]) & filters.group)
+@app.on_message(filters.command(["devam", "resume"]) & filters.group)
 @admin_check
 async def res_str(_, message: Message):
     try:
