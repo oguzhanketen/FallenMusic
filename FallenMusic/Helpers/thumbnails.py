@@ -60,22 +60,22 @@ async def gen_thumb(videoid, user_id):
         results = VideosSearch(url, limit=1)
         for result in (await results.next())["result"]:
             try:
-                title = result["title"]
+                title = result["Başlık"]
                 title = re.sub("\W+", " ", title)
                 title = title.title()
             except:
-                title = "Unsupported Title"
+                title = "Desteklenmeyen Başlık"
             try:
-                duration = result["duration"]
+                duration = result["Süre"]
             except:
-                duration = "Unknown"
+                duration = "Bilinmeyen"
             thumbnail = result["thumbnails"][0]["url"].split("?")[0]
             try:
                 result["viewCount"]["short"]
             except:
                 pass
             try:
-                result["channel"]["name"]
+                result["kanal"]["isim"]
             except:
                 pass
 
@@ -151,7 +151,7 @@ async def gen_thumb(videoid, user_id):
         try:
             draw.text(
                 (450, 25),
-                f"STARTED PLAYING",
+                f"OYNATILIYOR",
                 fill="white",
                 stroke_width=3,
                 stroke_fill="grey",
@@ -179,10 +179,10 @@ async def gen_thumb(videoid, user_id):
                 )
         except:
             pass
-        text_w, text_h = draw.textsize(f"Duration: {duration} Mins", font=arial)
+        text_w, text_h = draw.textsize(f"Süre: {duration} Dakika", font=arial)
         draw.text(
             ((1280 - text_w) / 2, 660),
-            f"Duration: {duration} Mins",
+            f"Süre: {duration} Dakika",
             fill="white",
             font=arial,
         )
@@ -205,22 +205,22 @@ async def gen_qthumb(videoid, user_id):
         results = VideosSearch(url, limit=1)
         for result in (await results.next())["result"]:
             try:
-                title = result["title"]
+                title = result["Başlık"]
                 title = re.sub("\W+", " ", title)
                 title = title.title()
             except:
-                title = "Unsupported Title"
+                title = "Desteklenmeyen Başlık"
             try:
-                duration = result["duration"]
+                duration = result["süre"]
             except:
-                duration = "Unknown"
+                duration = "Bilinmeyen"
             thumbnail = result["thumbnails"][0]["url"].split("?")[0]
             try:
                 result["viewCount"]["short"]
             except:
                 pass
             try:
-                result["channel"]["name"]
+                result["kanal"]["isim"]
             except:
                 pass
 
@@ -296,7 +296,7 @@ async def gen_qthumb(videoid, user_id):
         try:
             draw.text(
                 (455, 25),
-                "ADDED TO QUEUE",
+                "Sıraya eklendi",
                 fill="white",
                 stroke_width=5,
                 stroke_fill="black",
@@ -324,10 +324,10 @@ async def gen_qthumb(videoid, user_id):
                 )
         except:
             pass
-        text_w, text_h = draw.textsize(f"Duration: {duration} Mins", font=arial)
+        text_w, text_h = draw.textsize(f"Süre: {duration} Dakika", font=arial)
         draw.text(
             ((1280 - text_w) / 2, 660),
-            f"Duration: {duration} Mins",
+            f"Süre: {duration} Dakika",
             fill="white",
             font=arial,
         )
