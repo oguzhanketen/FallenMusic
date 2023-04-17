@@ -79,14 +79,14 @@ async def on_stream_end(pytgcalls, update: Update):
     else:
         process = await app.send_message(
             chat_id=chat_id,
-            text="» ᴅᴏᴡɴʟᴏᴀᴅɪɴɢ ɴᴇxᴛ ᴛʀᴀᴄᴋ ғʀᴏᴍ ᴏ̨ᴜᴇᴜᴇ...",
+            text="» sıʀᴀᴅᴀᴋɪ ᴘᴀʀᴄ̧ᴀ ɪɴᴅɪʀɪʟɪʏᴏʀ...",
         )
-        title = get[0]["title"]
-        duration = get[0]["duration"]
-        file_path = get[0]["file_path"]
-        videoid = get[0]["videoid"]
+        title = get[0]["başlık"]
+        duration = get[0]["süre"]
+        file_path = get[0]["dosya türü"]
+        videoid = get[0]["video numarası"]
         req_by = get[0]["req"]
-        user_id = get[0]["user_id"]
+        user_id = get[0]["kullanıcı"]
         get.pop(0)
 
         stream = AudioPiped(file_path, audio_parameters=HighQualityAudio())
@@ -105,6 +105,6 @@ async def on_stream_end(pytgcalls, update: Update):
         await app.send_photo(
             chat_id=chat_id,
             photo=img,
-            caption=f"**➻ sᴛᴀʀᴛᴇᴅ sᴛʀᴇᴀᴍɪɴɢ**\n\n‣ **ᴛɪᴛʟᴇ :** [{title[:27]}](https://t.me/{BOT_USERNAME}?start=info_{videoid})\n‣ **ᴅᴜʀᴀᴛɪᴏɴ :** `{duration}` ᴍɪɴᴜᴛᴇs\n‣ **ʀᴇǫᴜᴇsᴛᴇᴅ ʙʏ :** {req_by}",
+            caption=f"**➻ ʏᴀʏıɴ ʙᴀşʟᴀᴅı**\n\n‣ **ʙᴀşʟıᴋ :** [{title[:27]}](https://t.me/{BOT_USERNAME}?start=info_{videoid})\n‣ **sᴜ̈ʀᴇ :** `{duration}` ᴅᴀᴋɪᴋᴀ\n‣ **ᴛᴀʟᴇᴘ ᴇᴅᴇɴ :** {req_by}",
             reply_markup=buttons,
         )
