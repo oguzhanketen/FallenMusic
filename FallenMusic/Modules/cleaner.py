@@ -35,7 +35,7 @@ async def clear_misc(_, message: Message):
         await message.delete()
     except:
         pass
-    downloads = os.path.realpath("downloads")
+    downloads = os.path.realpath("indirilenler")
     down_dir = os.listdir(downloads)
     pth = os.path.realpath(".")
     os_dir = os.listdir(pth)
@@ -46,4 +46,4 @@ async def clear_misc(_, message: Message):
     if os_dir:
         for lel in os.listdir(pth):
             os.system("rm -rf *.webm *.jpg *.png")
-    await message.reply_text("» ᴀʟʟ ᴛᴇᴍᴘ ᴅɪʀᴇᴄᴛᴏʀɪᴇs ᴄʟᴇᴀɴᴇᴅ.")
+    await message.reply_text("» ʜᴇʀşᴇʏ ᴛᴇᴍɪᴢʟᴇɴᴅɪ.")
