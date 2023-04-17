@@ -48,7 +48,7 @@ async def ping_fallen(_, message: Message):
     await hmm.edit_text(
         f"""➻ ᴩᴏɴɢ : `{resp}ᴍs`
 
-<b><u>{BOT_NAME} sʏsᴛᴇᴍ sᴛᴀᴛs :</u></b>
+<b><u>{BOT_NAME} sɪsᴛᴇᴍ ɪsᴛᴀᴛɪsᴛɪᴋʟᴇʀɪ :</u></b>
 
 ๏ **ᴜᴩᴛɪᴍᴇ :** {uptime}
 ๏ **ʀᴀᴍ :** {mem}
@@ -57,11 +57,7 @@ async def ping_fallen(_, message: Message):
         reply_markup=InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton("❄ sᴜᴘᴘᴏʀᴛ ❄", url=config.SUPPORT_CHAT),
-                    InlineKeyboardButton(
-                        "✨ sᴏᴜʀᴄᴇ ✨",
-                        url="https://github.com/AnonymousX1025/FallenMusic",
-                    ),
+                    InlineKeyboardButton("❄ ᴅᴇsᴛᴇᴋ ❄", url=config.SUPPORT_CHAT),
                 ],
             ]
         ),
