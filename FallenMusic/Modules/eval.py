@@ -53,7 +53,7 @@ async def edit_or_reply(msg: Message, **kwargs):
 @app.on_message(filters.command("eval") & SUDOERS & ~filters.forwarded)
 async def executor(client, message):
     if len(message.command) < 2:
-        return await edit_or_reply(message, text="**ᴡʜᴀᴛ ʏᴏᴜ ᴡᴀɴɴᴀ ᴇxᴇᴄᴜᴛᴇ ʙᴀʙʏ ?**")
+        return await edit_or_reply(message, text="**ʏᴀᴘᴍᴀᴋ ɪsᴛᴇᴅɪɢ̆ɪɴ şᴇʏ ɴᴇᴅɪʀ?**")
     try:
         cmd = message.text.split(" ", maxsplit=1)[1]
     except IndexError:
@@ -80,8 +80,8 @@ async def executor(client, message):
     elif stdout:
         evaluation = stdout
     else:
-        evaluation = "Success"
-    final_output = f"**OUTPUT**:\n```{evaluation.strip()}```"
+        evaluation = "ʙᴀşᴀʀıʟı"
+    final_output = f"**Çıktı**:\n```{evaluation.strip()}```"
     if len(final_output) > 4096:
         filename = "output.txt"
         with open(filename, "w+", encoding="utf8") as out_file:
@@ -92,14 +92,14 @@ async def executor(client, message):
                 [
                     InlineKeyboardButton(
                         text="⏳",
-                        callback_data=f"runtime {t2-t1} Seconds",
+                        callback_data=f"Çalışma süresi {t2-t1} Saniye",
                     )
                 ]
             ]
         )
         await message.reply_document(
             document=filename,
-            caption=f"**INPUT:**\n`{cmd[0:980]}`\n\n**OUTPUT:**\n`Attached Document`",
+            caption=f"**INPUT:**\n`{cmd[0:980]}`\n\n**Çıktı:**\n`Belge`",
             quote=False,
             reply_markup=keyboard,
         )
@@ -112,7 +112,7 @@ async def executor(client, message):
                 [
                     InlineKeyboardButton(
                         text="⏳",
-                        callback_data=f"runtime {round(t2-t1, 3)} Seconds",
+                        callback_data=f"Çalışma Süresi {round(t2-t1, 3)} Saniye",
                     ),
                     InlineKeyboardButton(
                         text="🗑",
@@ -136,7 +136,7 @@ async def runtime_func_cq(_, cq):
 @app.on_message(filters.command("sh") & SUDOERS & ~filters.forwarded & ~filters.via_bot)
 async def shellrunner(client, message):
     if len(message.command) < 2:
-        return await edit_or_reply(message, text="**ᴇxᴀᴍᴩʟᴇ :**\n/sh git pull")
+        return await edit_or_reply(message, text="**ÖRNEK :**\n/sh git pull")
     text = message.text.split(None, 1)[1]
     if "\n" in text:
         code = text.split("\n")
@@ -151,7 +151,7 @@ async def shellrunner(client, message):
                 )
             except Exception as err:
                 LOGGER.error(err)
-                await edit_or_reply(message, text=f"**ERROR:**\n```{err}```")
+                await edit_or_reply(message, text=f"**HATA:**\n```{err}```")
             output += f"**{code}**\n"
             output += process.stdout.read()[:-1].decode("utf-8")
             output += "\n"
@@ -174,7 +174,7 @@ async def shellrunner(client, message):
                 tb=exc_tb,
             )
             return await edit_or_reply(
-                message, text=f"**ERROR:**\n```{''.join(errors)}```"
+                message, text=f"**HATA:**\n```{''.join(errors)}```"
             )
         output = process.stdout.read()[:-1].decode("utf-8")
     if str(output) == "\n":
@@ -190,6 +190,6 @@ async def shellrunner(client, message):
                 caption="`Output`",
             )
             return os.remove("output.txt")
-        await edit_or_reply(message, text=f"**OUTPUT:**\n```{output}```")
+        await edit_or_reply(message, text=f"**ÇIKTI:**\n```{output}```")
     else:
-        await edit_or_reply(message, text="**OUTPUT: **\n`No output`")
+        await edit_or_reply(message, text="**ÇIKTI: **\n`Çıktı yok`")
