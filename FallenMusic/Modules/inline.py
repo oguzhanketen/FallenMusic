@@ -39,7 +39,7 @@ async def inline_query_handler(_, query):
             await app.answer_inline_query(
                 query.id,
                 results=answers,
-                switch_pm_text="ᴛʏᴘᴇ sᴏᴍᴇᴛʜɪɴɢ ᴛᴏ sᴇᴀʀᴄʜ ᴏɴ ʏᴏᴜᴛᴜʙᴇ...",
+                switch_pm_text="ʏᴏᴜᴛᴜʙᴇ'ᴅᴇ ᴀʀᴀʏᴀʙɪʟᴇᴄᴇɢ̆ɪɴɪᴢ ʙɪʀ şᴇʏ ʏᴀᴢıɴ...",
                 cache_time=10,
             )
         except:
@@ -48,8 +48,8 @@ async def inline_query_handler(_, query):
         a = VideosSearch(text, limit=20)
         result = (await a.next()).get("result")
         for x in range(15):
-            title = (result[x]["title"]).title()
-            duration = result[x]["duration"]
+            title = (result[x]["başlık"]).title()
+            duration = result[x]["süre"]
             views = result[x]["viewCount"]["short"]
             thumbnail = result[x]["thumbnails"][0]["url"].split("?")[0]
             channellink = result[x]["channel"]["link"]
@@ -68,14 +68,14 @@ async def inline_query_handler(_, query):
                 ]
             )
             searched_text = f"""
-✨ **ᴛɪᴛʟᴇ :** [{title}]({link})
+✨ **ʙᴀşʟıᴋ :** [{title}]({link})
 
-⏳ **ᴅᴜʀᴀᴛɪᴏɴ :** `{duration}`ᴍɪɴᴜᴛᴇs
-👀 **ᴠɪᴇᴡs :** `{views}`
-⏰ **ᴩᴜʙʟɪsʜᴇᴅ ᴏɴ :** {published}
-🎥 **ᴄʜᴀɴɴᴇʟ :** [{channel}]({channellink})
+⏳ **sᴜ̈ʀᴇ :** `{duration}`ᴍɪɴᴜᴛᴇs
+👀 **ɢᴏ̈ʀᴜ̈ɴᴛᴜ̈ʟᴇᴍᴇ :** `{views}`
+⏰ **ʏᴀʏıɴʟᴀɴᴅı :** {published}
+🎥 **ᴋᴀɴᴀʟ :** [{channel}]({channellink})
 
-<u>💖 **sᴇᴀʀᴄʜ ᴩᴏᴡᴇʀᴇᴅ ʙʏ {BOT_NAME}**</u>"""
+<u>💖 **ᴀʀᴀᴍᴀʏı ɢᴜ̈ᴄ̧ʟᴇɴᴅɪʀᴇɴ {BOT_NAME}**</u>"""
             answers.append(
                 InlineQueryResultPhoto(
                     photo_url=thumbnail,
